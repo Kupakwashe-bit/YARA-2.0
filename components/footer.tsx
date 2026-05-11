@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import { AnimatedLogo } from "./animated-logo"
 
 const socialLinks = [
   {
@@ -79,13 +79,7 @@ export function Footer() {
           {/* Logo & Description */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/images/logo.png"
-                alt="C.U.T Robotics Club Logo"
-                width={48}
-                height={48}
-                className="w-12 h-12"
-              />
+              <AnimatedLogo size="md" />
               <span className="font-[family-name:var(--font-orbitron)] text-xl font-bold">
                 <span className="text-[#00D4AA]">C.U.T</span>
                 <span className="text-[#E8F4F1]"> ROBOTICS</span>

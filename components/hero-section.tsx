@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Image from "next/image"
+import { AnimatedLogo } from "./animated-logo"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -81,14 +81,7 @@ export function HeroSection() {
             <div className="relative">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-[#00D4AA]/20 rounded-full blur-3xl scale-110" />
-              <Image
-                src="/images/logo.png"
-                alt="C.U.T Robotics Club Logo"
-                width={400}
-                height={400}
-                className="relative z-10 w-80 h-80 md:w-96 md:h-96"
-                priority
-              />
+              <AnimatedLogo size="xl" />
             </div>
           </div>
         </div>
