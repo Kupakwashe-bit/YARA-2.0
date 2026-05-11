@@ -1,56 +1,72 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 
-interface Project {
+export interface Project {
+  id: string
   title: string
   description: string
   tags: string[]
   category: "all" | "autonomous" | "ai" | "mechatronics"
+  image: string
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
+    id: "campus-delivery-robot",
     title: "Campus Delivery Robot",
     description:
       "An autonomous delivery robot capable of navigating indoor environments with obstacle detection and package handoff.",
     tags: ["ROS2", "Computer Vision", "Path Planning"],
     category: "autonomous",
+    image: "/images/projects/delivery-robot.jpg",
   },
   {
+    id: "smart-waste-sorter",
     title: "Smart Waste Sorter",
     description:
       "AI-powered waste sorting system using computer vision to categorize and sort recyclables automatically.",
     tags: ["Machine Learning", "Python", "TensorFlow"],
     category: "ai",
+    image: "/images/projects/waste-sorter.jpg",
   },
   {
+    id: "agricultural-drone",
     title: "Agricultural Drone",
     description:
       "Precision agriculture drone system for crop monitoring and irrigation optimization using multispectral imaging.",
     tags: ["Drone", "Sensors", "IoT"],
     category: "autonomous",
+    image: "/images/projects/agricultural-drone.jpg",
   },
   {
+    id: "robotic-arm-controller",
     title: "Robotic Arm Controller",
     description:
       "6-DOF robotic arm with inverse kinematics and real-time trajectory planning for industrial applications.",
     tags: ["Arduino", "C++", "3D Printing"],
     category: "mechatronics",
+    image: "/images/projects/robotic-arm.jpg",
   },
   {
+    id: "object-recognition-system",
     title: "Object Recognition System",
     description:
       "Real-time object detection and classification system for autonomous navigation and manipulation tasks.",
     tags: ["Computer Vision", "YOLO", "OpenCV"],
     category: "ai",
+    image: "/images/projects/object-recognition.jpg",
   },
   {
+    id: "line-following-robot",
     title: "Line Following Robot",
     description:
       "Competition-ready line following robot with PID control and adaptive speed for various track conditions.",
     tags: ["Embedded", "PID Control", "Sensors"],
     category: "mechatronics",
+    image: "/images/projects/line-follower.jpg",
   },
 ]
 
@@ -136,27 +152,21 @@ export function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
             <article
-              key={project.title}
+              key={project.id}
               className={`group bg-[#0A0F1E] border border-[#1a2744] rounded-xl overflow-hidden hover:border-[#00D4AA]/50 transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {/* Project Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-[#1a2744] to-[#0D1B2A] flex items-center justify-center">
-                <svg
-                  className="w-16 h-16 text-[#00D4AA]/30"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                  />
-                </svg>
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
               </div>
 
               {/* Content */}
@@ -181,15 +191,15 @@ export function ProjectsSection() {
                 </div>
 
                 {/* View Link */}
-                <a
-                  href="#"
+                <Link
+                  href={`/projects/${project.id}`}
                   className="inline-flex items-center gap-2 text-[#00D4AA] text-sm font-medium hover:gap-3 transition-all duration-200"
                 >
                   View Details
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </article>
           ))}
@@ -201,15 +211,15 @@ export function ProjectsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <a
-            href="#"
+          <Link
+            href="/projects"
             className="inline-flex items-center gap-2 px-8 py-4 border border-[#1a2744] text-[#E8F4F1] font-semibold rounded-lg hover:border-[#00D4AA] hover:text-[#00D4AA] transition-all duration-200"
           >
             View All Projects
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
