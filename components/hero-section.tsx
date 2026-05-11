@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -12,117 +13,97 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0F1E] circuit-bg"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0F1E]"
     >
-      {/* Animated Circuit Background Overlay */}
-      <div className="absolute inset-0 animate-circuit-pulse">
-        <svg
-          className="w-full h-full opacity-10"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path
-                d="M0 10h8v2h-8zM12 10h8v2h-8zM10 0v8h2v-8zM10 12v8h2v-8z"
-                fill="none"
-                stroke="#00D4AA"
-                strokeWidth="0.3"
-              />
-              <circle cx="10" cy="10" r="1.5" fill="#00D4AA" fillOpacity="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)" />
-        </svg>
-      </div>
-
-      {/* Robot Arm Illustration */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 opacity-20 hidden lg:block">
-        <svg viewBox="0 0 200 300" className="w-full">
-          <defs>
-            <linearGradient id="armGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00D4AA" />
-              <stop offset="100%" stopColor="#0A0F1E" />
-            </linearGradient>
-          </defs>
-          {/* Base */}
-          <rect x="80" y="250" width="40" height="30" rx="5" fill="url(#armGradient)" />
-          {/* Lower Arm */}
-          <rect x="90" y="180" width="20" height="80" rx="3" fill="#1a2744" stroke="#00D4AA" strokeWidth="1" />
-          {/* Joint */}
-          <circle cx="100" cy="180" r="12" fill="#0D1B2A" stroke="#00D4AA" strokeWidth="2" />
-          <circle cx="100" cy="180" r="5" fill="#00D4AA" />
-          {/* Upper Arm */}
-          <rect x="85" y="100" width="30" height="90" rx="3" fill="#1a2744" stroke="#00D4AA" strokeWidth="1" transform="rotate(-15 100 145)" />
-          {/* Shoulder Joint */}
-          <circle cx="95" cy="105" r="15" fill="#0D1B2A" stroke="#00D4AA" strokeWidth="2" />
-          <circle cx="95" cy="105" r="6" fill="#00D4AA" />
-          {/* Gripper */}
-          <path d="M60 50 L80 70 L80 90 L70 90 L70 75 L55 60 Z" fill="#1a2744" stroke="#00D4AA" strokeWidth="1" />
-          <path d="M130 50 L110 70 L110 90 L120 90 L120 75 L135 60 Z" fill="#1a2744" stroke="#00D4AA" strokeWidth="1" />
-          {/* Wrist */}
-          <circle cx="95" cy="65" r="10" fill="#0D1B2A" stroke="#00D4AA" strokeWidth="2" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 opacity-5">
         <div
-          className={`transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          {/* Subheadline */}
-          <p className="text-[#00D4AA] font-[family-name:var(--font-orbitron)] text-sm md:text-base tracking-[0.3em] mb-6">
-            Y.A.R.A · YOUNG AFRICAN ROBOTICS ASSOCIATION
-          </p>
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(#00D4AA 1px, transparent 1px), linear-gradient(90deg, #00D4AA 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
+          }}
+        />
+      </div>
 
-          {/* Main Headline */}
-          <h1 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl lg:text-7xl font-bold text-[#E8F4F1] leading-tight mb-8">
-            <span className="block">Engineering Africa&apos;s Future</span>
-            <span className="block text-[#00D4AA] mt-2">
-              One Robot at a Time
-            </span>
-          </h1>
+      {/* Animated Gradient Orb */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#00D4AA]/10 rounded-full blur-[120px] animate-pulse" />
 
-          {/* Description */}
-          <p className="text-[#8aa3b8] text-lg md:text-xl max-w-2xl mx-auto mb-10 text-pretty">
-            Empowering young African innovators to design, build, and deploy
-            cutting-edge robotics solutions for a better tomorrow.
-          </p>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div
+            className={`transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
+            {/* Brand Name */}
+            <h1 className="font-[family-name:var(--font-orbitron)] text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+              <span className="text-[#00D4AA]">C.U.T</span>
+              <br />
+              <span className="text-[#E8F4F1]">ROBOTICS</span>
+            </h1>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#projects"
-              className="px-8 py-4 bg-[#00D4AA] text-[#0A0F1E] font-semibold rounded-lg hover:scale-105 hover:bg-[#00e6b8] transition-all duration-200 text-lg shadow-lg shadow-[#00D4AA]/20"
-            >
-              Explore Projects
-            </a>
-            <a
-              href="#join"
-              className="px-8 py-4 border-2 border-[#FF6B35] text-[#FF6B35] font-semibold rounded-lg hover:scale-105 hover:bg-[#FF6B35] hover:text-[#0A0F1E] transition-all duration-200 text-lg"
-            >
-              Join the Club
-            </a>
+            {/* Tagline */}
+            <p className="text-[#00D4AA] font-[family-name:var(--font-orbitron)] text-sm md:text-base tracking-widest uppercase mb-6">
+              Innovate Local Build Global
+            </p>
+
+            {/* Description */}
+            <p className="text-[#8aa3b8] text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
+              Building cutting-edge robotics solutions in autonomous systems,
+              AI integration, and mechatronics engineering.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#what-we-do"
+                className="px-8 py-4 bg-[#00D4AA] text-[#0A0F1E] font-semibold rounded-lg hover:bg-[#00e6b8] transition-all duration-200 text-center"
+              >
+                Explore Services
+              </a>
+              <a
+                href="#projects"
+                className="px-8 py-4 border border-[#1a2744] text-[#E8F4F1] font-semibold rounded-lg hover:border-[#00D4AA] hover:text-[#00D4AA] transition-all duration-200 text-center"
+              >
+                View Projects
+              </a>
+            </div>
+          </div>
+
+          {/* Right - Logo/Visual */}
+          <div
+            className={`hidden lg:flex justify-center items-center transition-all duration-1000 delay-300 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="relative">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-[#00D4AA]/20 rounded-full blur-3xl scale-110" />
+              <Image
+                src="/images/logo.png"
+                alt="C.U.T Robotics Club Logo"
+                width={400}
+                height={400}
+                className="relative z-10 w-80 h-80 md:w-96 md:h-96"
+                priority
+              />
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg
-            className="w-6 h-6 text-[#00D4AA]"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <a
+          href="#what-we-do"
+          className="flex flex-col items-center gap-2 text-[#00D4AA] hover:text-[#00e6b8] transition-colors"
+        >
+          <div className="w-8 h-12 border-2 border-current rounded-full flex justify-center pt-2">
+            <div className="w-1.5 h-3 bg-current rounded-full animate-bounce" />
+          </div>
+        </a>
       </div>
     </section>
   )

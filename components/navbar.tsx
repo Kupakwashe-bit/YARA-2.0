@@ -16,17 +16,16 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
+    { href: "#what-we-do", label: "Services" },
     { href: "#projects", label: "Projects" },
-    { href: "#team", label: "Team" },
+    { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ]
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-[#0A0F1E]/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,13 +34,14 @@ export function Navbar() {
           <a href="#home" className="flex items-center gap-3">
             <Image
               src="/images/logo.png"
-              alt="Y.A.R.A Logo"
+              alt="C.U.T Robotics Club Logo"
               width={48}
               height={48}
               className="w-10 h-10 md:w-12 md:h-12"
             />
-            <span className="font-[family-name:var(--font-orbitron)] text-lg md:text-xl font-bold text-[#00D4AA]">
-              Y.A.R.A
+            <span className="font-[family-name:var(--font-orbitron)] text-lg md:text-xl font-bold">
+              <span className="text-[#00D4AA]">C.U.T</span>
+              <span className="text-[#E8F4F1]"> ROBOTICS</span>
             </span>
           </a>
 
@@ -51,17 +51,11 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[#E8F4F1] hover:text-[#00D4AA] transition-colors duration-200 text-sm font-medium"
+                className="text-[#8aa3b8] hover:text-[#00D4AA] transition-colors duration-200 text-sm font-medium"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#join"
-              className="px-5 py-2 bg-[#00D4AA] text-[#0A0F1E] font-semibold rounded-lg hover:scale-105 hover:bg-[#00e6b8] transition-all duration-200"
-            >
-              Join Now
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,18 +101,11 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-[#E8F4F1] hover:text-[#00D4AA] transition-colors duration-200 font-medium"
+                className="text-[#8aa3b8] hover:text-[#00D4AA] transition-colors duration-200 font-medium"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#join"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-5 py-2 bg-[#00D4AA] text-[#0A0F1E] font-semibold rounded-lg hover:bg-[#00e6b8] transition-all duration-200 text-center"
-            >
-              Join Now
-            </a>
           </div>
         </div>
       </div>
