@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { AnimatedLogo } from "./animated-logo"
+import Image from "next/image"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -32,7 +32,13 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3">
-            <AnimatedLogo size="sm" />
+            <Image
+              src="/images/logo.png"
+              alt="C.U.T Robotics Club Logo"
+              width={48}
+              height={48}
+              className="w-10 h-10 md:w-12 md:h-12"
+            />
             <span className="font-[family-name:var(--font-orbitron)] text-lg md:text-xl font-bold">
               <span className="text-[#00D4AA]">C.U.T</span>
               <span className="text-[#E8F4F1]"> ROBOTICS</span>

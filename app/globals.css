@@ -152,16 +152,4 @@ html {
   clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }
 
-/* Rotating Gear Animation */
-@keyframes rotate-gear {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.animate-rotate-gear {
-  animation: rotate-gear 20s linear infinite;
-}
