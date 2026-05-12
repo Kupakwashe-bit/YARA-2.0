@@ -39,9 +39,8 @@ export function Navbar() {
               height={48}
               className="w-10 h-10 md:w-12 md:h-12"
             />
-            <span className="font-[family-name:var(--font-orbitron)] text-lg md:text-xl font-bold">
-              <span className="text-[#00D4AA]">C.U.T</span>
-              <span className="text-[#E8F4F1]"> ROBOTICS</span>
+            <span className="font-[family-name:var(--font-orbitron)] text-lg md:text-xl font-bold text-[#E8F4F1]">
+              Y.A.R.A CUT CHAPTER
             </span>
           </a>
 

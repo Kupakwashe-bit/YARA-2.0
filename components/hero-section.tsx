@@ -38,10 +38,8 @@ export function HeroSection() {
             }`}
           >
             {/* Brand Name */}
-            <h1 className="font-[family-name:var(--font-orbitron)] text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-              <span className="text-[#00D4AA]">C.U.T</span>
-              <br />
-              <span className="text-[#E8F4F1]">ROBOTICS</span>
+            <h1 className="font-[family-name:var(--font-orbitron)] text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-[#E8F4F1]">
+              Y.A.R.A CUT CHAPTER
             </h1>
 
             {/* Tagline */}

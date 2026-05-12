@@ -86,9 +86,8 @@ export function Footer() {
                 height={48}
                 className="w-12 h-12"
               />
-              <span className="font-[family-name:var(--font-orbitron)] text-xl font-bold">
-                <span className="text-[#00D4AA]">C.U.T</span>
-                <span className="text-[#E8F4F1]"> ROBOTICS</span>
+              <span className="font-[family-name:var(--font-orbitron)] text-xl font-bold text-[#E8F4F1]">
+                Y.A.R.A CUT CHAPTER
               </span>
             </div>
             <p className="text-[#8aa3b8] text-sm leading-relaxed mb-6 max-w-sm">
